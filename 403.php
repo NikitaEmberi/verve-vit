@@ -25,9 +25,9 @@
                             <h3>Oops! Forbidden</h3>
                             <h1><span>4</span><span>0</span><span>3</span></h1>
                         </div>
-                        <h2>You don't have permission to access this resource.</h2>
+                        <h2>The website’s configuration prevents you from accessing this page.</h2>
 
-                        <a class="white" href="index.html"><p><span class="bg"></span><span class="base"></span><span class="text">Go to Home</span></p></a>
+                        <a class="white" href="index"><p><span class="bg"></span><span class="base"></span><span class="text">Go to Home</span></p></a>
                 </div> 
             </div>
         </div>

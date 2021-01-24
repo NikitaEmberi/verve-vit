@@ -22,10 +22,10 @@
 <nav id="main-navigation" class="nav-main">
     <ul class="menu">
         <li class="menu__item">
-            <a class="menu__link active" href="index.html">Home</a>
+            <a class="menu__link active" href="index">Home</a>
         </li>
         <li class="menu__item">
-            <a class="menu__link" href="events.html">Events</a>
+            <a class="menu__link" href="events">Events</a>
             <!-- <ul class="submenu">
                 <li class="menu__item">
                     <a class="menu__link" href="#0">E1</a>
@@ -39,22 +39,22 @@
             </ul> -->
         </li>
         <li class="menu__item">
-            <a class="menu__link" href="picture-gallery.html">Picture Gallery</a>
+            <a class="menu__link" href="picture-gallery">Picture Gallery</a>
         </li>
         <li class="menu__item">
-            <a class="menu__link" href="about-us.html">About Us</a>
+            <a class="menu__link" href="about-us">About Us</a>
         </li>
         <li class="menu__item">
-            <a class="menu__link" href="sponsors.html">Our Sponsors</a>
+            <a class="menu__link" href="sponsors">Our Sponsors</a>
         </li>
         <li class="menu__item">
-            <a class="menu__link" href="contact-us.html">Contact Us</a>
+            <a class="menu__link" href="contact-us">Contact Us</a>
         </li>
         
     </ul>
 </nav>                
 
-<a class="logo" href="index.html">
+<a class="logo" href="index">
     <svg version="1.0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2445.000000 493.000000">
         <g transform="translate(0.000000,493.000000) scale(0.100000,-0.100000)"
         fill="#000" stroke="none">

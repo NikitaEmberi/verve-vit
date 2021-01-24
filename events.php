@@ -11,6 +11,26 @@
     <link rel="stylesheet" href="css/glimpses.css">
 
     <link rel="stylesheet" href="css/events.css">
+    <style>
+        #overlay {
+  position: absolute; /* Sit on top of the page content */
+  display: block; /* Hidden by default */
+  width: 100%; /* Full width (cover the whole page) */
+  height: 100%; /* Full height (cover the whole page) */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+  z-index: 1; /* Specify a stack order in case you're using a different order for other elements */
+  cursor: pointer; /* Add a pointer on hover */
+}
+.event_item:hover #overlay {
+    transition: 1s;
+    opacity: 0;
+    
+}
+    </style>
     
     <title>Events</title>
 </head>
@@ -22,7 +42,6 @@
         <div id="layout">
 
             <div>
-
                 <?php include 'navbar.php' ?>
                 
                 <div class="events">
@@ -80,122 +99,368 @@
                     <div class="events_list">
                         <div>
 
-                            <div class="event_item" data-color="lit">
+                            <div class="event_item" data-color="lit" style="background-color: #ffffff;">
                                 <a href="#" class="event_item_link"></a>
-                                <div class="event_item_flow event_item_container" style="background-color:#72C4FE;">
-                                    <div class="event_item_foot event_item_foot--light">
-                                        <ul class="event_item_details">
-                                            <li>25/02/2021</li> <br>
-                                            <li>Microsoft Teams</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="event_item_container">
+                                <div class="event_item_container" style="background-color: #ffffff; height: 100%; background-size: cover; background-repeat: no-repeat; background-position: center; background-image: url(/images/events/2.jpg)">
                                     <div class="event_item_inner">
-                                        <div class="event_item_circle" style="background-color:#72C4FE;"></div>
-                                        <div class="event_item_gradient"></div>
+                                        
                                         <div class="event_item_head">
                                             <div class="event_item_title">Literary Council</div>
-                                            <div class="event_item_subtitle"><span>This is a Lit Council event</span></div>
+                                            <div class="event_item_subtitle"><span>This is a Literary Council event</span></div>
                                         </div>
                                         <div class="event_item_float" >2020</div>
+                                        <div class="event_item_foot">
+                                            <ul class="event_item_details" >
+                                                <li>25/02/2021</li> <br>
+                                                <li>Microsoft Teams</li>
+                                            </ul>
+                                        </div>
                                     </div>
-                                    <div class="event_item_foot">
-                                        <ul class="event_item_details">
-                                            <li>25/02/2021</li> <br>
-                                            <li>Microsoft Teams</li>
-                                        </ul>
-                                    </div>
+                                   
+                                    <div id="overlay"></div> 
                                 </div>
+                                
+                                
                             </div>
 
                             <div class="event_item" data-color="cult">
                                 <a href="#" class="event_item_link"></a>
-                                <div class="event_item_flow event_item_container" style="background-color:#f0d6d9;;">
-                                    <div class="event_item_foot event_item_foot--light">
-                                        <ul class="event_item_details">
-                                            <li>25/02/2021</li> <br>
-                                            <li>YouTube</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="event_item_container">
-                                    <div class="event_item_inner">
-                                        <div class="event_item_circle" style="background-color:#f0d6d9;"></div>
+                                <div class="event_item_container" style="height: 100%; background-size: cover; background-repeat: no-repeat; background-position: center; background-image: url(https://scontent.famd4-1.fna.fbcdn.net/v/t31.0-8/27993801_1203897646411268_8159286761677238872_o.jpg?_nc_cat=103&ccb=2&_nc_sid=cdbe9c&_nc_ohc=O3a_5yh79XEAX8tR7M5&_nc_ht=scontent.famd4-1.fna&oh=0f85cdd35e2313850ebce735c225d158&oe=6029E2E8)">
+                                    <div class="event_item_inner" >
+                                        <div class="event_item_circle" style="background-color:#72C4FE;"></div>
                                         <div class="event_item_gradient"></div>
                                         <div class="event_item_head">
                                             <div class="event_item_title">Cultural Council</div>
                                             <div class="event_item_subtitle"><span>This is a Cultural Council event</span></div>
                                         </div>
                                         <div class="event_item_float" >2020</div>
+                                        <div class="event_item_foot">
+                                            <ul class="event_item_details" >
+                                                <li>25/02/2021</li> <br>
+                                                <li>Microsoft Teams</li>
+                                            </ul>
+                                        </div>
                                     </div>
-                                    <div class="event_item_foot">
-                                        <ul class="event_item_details">
-                                            <li>25/02/2021</li> <br>
-                                            <li>YouTube</li>
-                                        </ul>
-                                    </div>
+                                    <div id="overlay"></div> 
                                 </div>
                             </div>
 
-                            
                             <div class="event_item" data-color="sports">
                                 <a href="#" class="event_item_link"></a>
-                                <div class="event_item_flow event_item_container" style="background-color:#EBD6A9;;">
-                                    <div class="event_item_foot event_item_foot--light">
-                                        <ul class="event_item_details">
-                                            <li>25/02/2021</li> <br>
-                                            <li>YouTube</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="event_item_container">
-                                    <div class="event_item_inner">
-                                        <div class="event_item_circle" style="background-color:#EBD6A9;"></div>
+                                <div class="event_item_container" style="height: 100%; background-size: cover; background-repeat: no-repeat; background-position: center; background-image: url(https://scontent.famd4-1.fna.fbcdn.net/v/t1.0-9/53238287_1512489958885367_4264831451809185792_o.jpg?_nc_cat=101&ccb=2&_nc_sid=cdbe9c&_nc_ohc=K6NHQu9ZBbUAX_IdODY&_nc_ht=scontent.famd4-1.fna&oh=7b6ced1eba55fefcdd07428f82984ca2&oe=602A8FA6)">
+                                    <div class="event_item_inner" >
+                                        <div class="event_item_circle" style="background-color:#72C4FE;"></div>
                                         <div class="event_item_gradient"></div>
                                         <div class="event_item_head">
                                             <div class="event_item_title">Sports Council</div>
                                             <div class="event_item_subtitle"><span>This is a Sports Council event</span></div>
                                         </div>
                                         <div class="event_item_float" >2020</div>
+                                        <div class="event_item_foot">
+                                            <ul class="event_item_details" >
+                                                <li>25/02/2021</li> <br>
+                                                <li>Microsoft Teams</li>
+                                            </ul>
+                                        </div>
                                     </div>
-                                    <div class="event_item_foot">
-                                        <ul class="event_item_details">
-                                            <li>25/02/2021</li> <br>
-                                            <li>YouTube</li>
-                                        </ul>
-                                    </div>
+                                    <div id="overlay"></div> 
                                 </div>
-                            </div>             
-                            
+                            </div>
+
                             <div class="event_item" data-color="tech">
                                 <a href="#" class="event_item_link"></a>
-                                <div class="event_item_flow event_item_container" style="background-color:#323B4E;;">
-                                    <div class="event_item_foot event_item_foot--light">
-                                        <ul class="event_item_details">
-                                            <li>25/02/2021</li> <br>
-                                            <li>YouTube</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="event_item_container">
-                                    <div class="event_item_inner">
-                                        <div class="event_item_circle" style="background-color:#323B4E;"></div>
+                                <div class="event_item_container" style="height: 100%; background-size: cover; background-repeat: no-repeat; background-position: center; background-image: url(https://scontent.famd4-1.fna.fbcdn.net/v/t1.0-9/92461398_1890247541109605_6265730369962639360_o.jpg?_nc_cat=102&ccb=2&_nc_sid=cdbe9c&_nc_ohc=mLDFrX0lDtAAX94N-or&_nc_oc=AQnuZNJts-gX9YyQzn9v0UVXPZWKaBhjMR452W5vqO2_oS2dTT4Cu6v-Yc17y-GmLyw&_nc_ht=scontent.famd4-1.fna&oh=2130df3cde257d059dc85bc92275b660&oe=602B8B18)">
+                                    <div class="event_item_inner" >
+                                        <div class="event_item_circle" style="background-color:#72C4FE;"></div>
                                         <div class="event_item_gradient"></div>
                                         <div class="event_item_head">
                                             <div class="event_item_title">Technical Council</div>
                                             <div class="event_item_subtitle"><span>This is a Technical Council event</span></div>
                                         </div>
                                         <div class="event_item_float" >2020</div>
+                                        <div class="event_item_foot">
+                                            <ul class="event_item_details" >
+                                                <li>25/02/2021</li> <br>
+                                                <li>Microsoft Teams</li>
+                                            </ul>
+                                        </div>
                                     </div>
-                                    <div class="event_item_foot">
-                                        <ul class="event_item_details">
-                                            <li>25/02/2021</li> <br>
-                                            <li>YouTube</li>
-                                        </ul>
-                                    </div>
+                                    <div id="overlay"></div> 
                                 </div>
-                            </div>       
+                            </div>
+                            
+                            <div class="event_item" data-color="lit" style="background-color: #ffffff;">
+                                <a href="#" class="event_item_link"></a>
+                                <div class="event_item_container" style="background-color: #ffffff; height: 100%; background-size: cover; background-repeat: no-repeat; background-position: center; background-image: url(/images/events/2.jpg)">
+                                    <div class="event_item_inner">
+                                        
+                                        <div class="event_item_head">
+                                            <div class="event_item_title">Literary Council</div>
+                                            <div class="event_item_subtitle"><span>This is a Literary Council event</span></div>
+                                        </div>
+                                        <div class="event_item_float" >2020</div>
+                                        <div class="event_item_foot">
+                                            <ul class="event_item_details" >
+                                                <li>25/02/2021</li> <br>
+                                                <li>Microsoft Teams</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                   
+                                    <div id="overlay"></div> 
+                                </div>
+                                
+                                
+                            </div>
+
+                            <div class="event_item" data-color="cult">
+                                <a href="#" class="event_item_link"></a>
+                                <div class="event_item_container" style="height: 100%; background-size: cover; background-repeat: no-repeat; background-position: center; background-image: url(https://scontent.famd4-1.fna.fbcdn.net/v/t31.0-8/27993801_1203897646411268_8159286761677238872_o.jpg?_nc_cat=103&ccb=2&_nc_sid=cdbe9c&_nc_ohc=O3a_5yh79XEAX8tR7M5&_nc_ht=scontent.famd4-1.fna&oh=0f85cdd35e2313850ebce735c225d158&oe=6029E2E8)">
+                                    <div class="event_item_inner" >
+                                        <div class="event_item_circle" style="background-color:#72C4FE;"></div>
+                                        <div class="event_item_gradient"></div>
+                                        <div class="event_item_head">
+                                            <div class="event_item_title">Cultural Council</div>
+                                            <div class="event_item_subtitle"><span>This is a Cultural Council event</span></div>
+                                        </div>
+                                        <div class="event_item_float" >2020</div>
+                                        <div class="event_item_foot">
+                                            <ul class="event_item_details" >
+                                                <li>25/02/2021</li> <br>
+                                                <li>Microsoft Teams</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div id="overlay"></div> 
+                                </div>
+                            </div>
+
+                            <div class="event_item" data-color="sports">
+                                <a href="#" class="event_item_link"></a>
+                                <div class="event_item_container" style="height: 100%; background-size: cover; background-repeat: no-repeat; background-position: center; background-image: url(https://scontent.famd4-1.fna.fbcdn.net/v/t1.0-9/53238287_1512489958885367_4264831451809185792_o.jpg?_nc_cat=101&ccb=2&_nc_sid=cdbe9c&_nc_ohc=K6NHQu9ZBbUAX_IdODY&_nc_ht=scontent.famd4-1.fna&oh=7b6ced1eba55fefcdd07428f82984ca2&oe=602A8FA6)">
+                                    <div class="event_item_inner" >
+                                        <div class="event_item_circle" style="background-color:#72C4FE;"></div>
+                                        <div class="event_item_gradient"></div>
+                                        <div class="event_item_head">
+                                            <div class="event_item_title">Sports Council</div>
+                                            <div class="event_item_subtitle"><span>This is a Sports Council event</span></div>
+                                        </div>
+                                        <div class="event_item_float" >2020</div>
+                                        <div class="event_item_foot">
+                                            <ul class="event_item_details" >
+                                                <li>25/02/2021</li> <br>
+                                                <li>Microsoft Teams</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div id="overlay"></div> 
+                                </div>
+                            </div>
+
+                            <div class="event_item" data-color="tech">
+                                <a href="#" class="event_item_link"></a>
+                                <div class="event_item_container" style="height: 100%; background-size: cover; background-repeat: no-repeat; background-position: center; background-image: url(https://scontent.famd4-1.fna.fbcdn.net/v/t1.0-9/92461398_1890247541109605_6265730369962639360_o.jpg?_nc_cat=102&ccb=2&_nc_sid=cdbe9c&_nc_ohc=mLDFrX0lDtAAX94N-or&_nc_oc=AQnuZNJts-gX9YyQzn9v0UVXPZWKaBhjMR452W5vqO2_oS2dTT4Cu6v-Yc17y-GmLyw&_nc_ht=scontent.famd4-1.fna&oh=2130df3cde257d059dc85bc92275b660&oe=602B8B18)">
+                                    <div class="event_item_inner" >
+                                        <div class="event_item_circle" style="background-color:#72C4FE;"></div>
+                                        <div class="event_item_gradient"></div>
+                                        <div class="event_item_head">
+                                            <div class="event_item_title">Technical Council</div>
+                                            <div class="event_item_subtitle"><span>This is a Technical Council event</span></div>
+                                        </div>
+                                        <div class="event_item_float" >2020</div>
+                                        <div class="event_item_foot">
+                                            <ul class="event_item_details" >
+                                                <li>25/02/2021</li> <br>
+                                                <li>Microsoft Teams</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div id="overlay"></div> 
+                                </div>
+                            </div>
+
+                            <div class="event_item" data-color="lit" style="background-color: #ffffff;">
+                                <a href="#" class="event_item_link"></a>
+                                <div class="event_item_container" style="background-color: #ffffff; height: 100%; background-size: cover; background-repeat: no-repeat; background-position: center; background-image: url(/images/events/2.jpg)">
+                                    <div class="event_item_inner">
+                                        
+                                        <div class="event_item_head">
+                                            <div class="event_item_title">Literary Council</div>
+                                            <div class="event_item_subtitle"><span>This is a Literary Council event</span></div>
+                                        </div>
+                                        <div class="event_item_float" >2020</div>
+                                        <div class="event_item_foot">
+                                            <ul class="event_item_details" >
+                                                <li>25/02/2021</li> <br>
+                                                <li>Microsoft Teams</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                   
+                                    <div id="overlay"></div> 
+                                </div>
+                                
+                                
+                            </div>
+
+                            <div class="event_item" data-color="cult">
+                                <a href="#" class="event_item_link"></a>
+                                <div class="event_item_container" style="height: 100%; background-size: cover; background-repeat: no-repeat; background-position: center; background-image: url(https://scontent.famd4-1.fna.fbcdn.net/v/t31.0-8/27993801_1203897646411268_8159286761677238872_o.jpg?_nc_cat=103&ccb=2&_nc_sid=cdbe9c&_nc_ohc=O3a_5yh79XEAX8tR7M5&_nc_ht=scontent.famd4-1.fna&oh=0f85cdd35e2313850ebce735c225d158&oe=6029E2E8)">
+                                    <div class="event_item_inner" >
+                                        <div class="event_item_circle" style="background-color:#72C4FE;"></div>
+                                        <div class="event_item_gradient"></div>
+                                        <div class="event_item_head">
+                                            <div class="event_item_title">Cultural Council</div>
+                                            <div class="event_item_subtitle"><span>This is a Cultural Council event</span></div>
+                                        </div>
+                                        <div class="event_item_float" >2020</div>
+                                        <div class="event_item_foot">
+                                            <ul class="event_item_details" >
+                                                <li>25/02/2021</li> <br>
+                                                <li>Microsoft Teams</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div id="overlay"></div> 
+                                </div>
+                            </div>
+
+                            <div class="event_item" data-color="sports">
+                                <a href="#" class="event_item_link"></a>
+                                <div class="event_item_container" style="height: 100%; background-size: cover; background-repeat: no-repeat; background-position: center; background-image: url(https://scontent.famd4-1.fna.fbcdn.net/v/t1.0-9/53238287_1512489958885367_4264831451809185792_o.jpg?_nc_cat=101&ccb=2&_nc_sid=cdbe9c&_nc_ohc=K6NHQu9ZBbUAX_IdODY&_nc_ht=scontent.famd4-1.fna&oh=7b6ced1eba55fefcdd07428f82984ca2&oe=602A8FA6)">
+                                    <div class="event_item_inner" >
+                                        <div class="event_item_circle" style="background-color:#72C4FE;"></div>
+                                        <div class="event_item_gradient"></div>
+                                        <div class="event_item_head">
+                                            <div class="event_item_title">Sports Council</div>
+                                            <div class="event_item_subtitle"><span>This is a Sports Council event</span></div>
+                                        </div>
+                                        <div class="event_item_float" >2020</div>
+                                        <div class="event_item_foot">
+                                            <ul class="event_item_details" >
+                                                <li>25/02/2021</li> <br>
+                                                <li>Microsoft Teams</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div id="overlay"></div> 
+                                </div>
+                            </div>
+
+                            <div class="event_item" data-color="tech">
+                                <a href="#" class="event_item_link"></a>
+                                <div class="event_item_container" style="height: 100%; background-size: cover; background-repeat: no-repeat; background-position: center; background-image: url(https://scontent.famd4-1.fna.fbcdn.net/v/t1.0-9/92461398_1890247541109605_6265730369962639360_o.jpg?_nc_cat=102&ccb=2&_nc_sid=cdbe9c&_nc_ohc=mLDFrX0lDtAAX94N-or&_nc_oc=AQnuZNJts-gX9YyQzn9v0UVXPZWKaBhjMR452W5vqO2_oS2dTT4Cu6v-Yc17y-GmLyw&_nc_ht=scontent.famd4-1.fna&oh=2130df3cde257d059dc85bc92275b660&oe=602B8B18)">
+                                    <div class="event_item_inner" >
+                                        <div class="event_item_circle" style="background-color:#72C4FE;"></div>
+                                        <div class="event_item_gradient"></div>
+                                        <div class="event_item_head">
+                                            <div class="event_item_title">Technical Council</div>
+                                            <div class="event_item_subtitle"><span>This is a Technical Council event</span></div>
+                                        </div>
+                                        <div class="event_item_float" >2020</div>
+                                        <div class="event_item_foot">
+                                            <ul class="event_item_details" >
+                                                <li>25/02/2021</li> <br>
+                                                <li>Microsoft Teams</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div id="overlay"></div> 
+                                </div>
+                            </div>
+
+                            <div class="event_item" data-color="lit" style="background-color: #ffffff;">
+                                <a href="#" class="event_item_link"></a>
+                                <div class="event_item_container" style="background-color: #ffffff; height: 100%; background-size: cover; background-repeat: no-repeat; background-position: center; background-image: url(/images/events/2.jpg)">
+                                    <div class="event_item_inner">
+                                        
+                                        <div class="event_item_head">
+                                            <div class="event_item_title">Literary Council</div>
+                                            <div class="event_item_subtitle"><span>This is a Literary Council event</span></div>
+                                        </div>
+                                        <div class="event_item_float" >2020</div>
+                                        <div class="event_item_foot">
+                                            <ul class="event_item_details" >
+                                                <li>25/02/2021</li> <br>
+                                                <li>Microsoft Teams</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                   
+                                    <div id="overlay"></div> 
+                                </div>
+                                
+                                
+                            </div>
+
+                            <div class="event_item" data-color="cult">
+                                <a href="#" class="event_item_link"></a>
+                                <div class="event_item_container" style="height: 100%; background-size: cover; background-repeat: no-repeat; background-position: center; background-image: url(https://scontent.famd4-1.fna.fbcdn.net/v/t31.0-8/27993801_1203897646411268_8159286761677238872_o.jpg?_nc_cat=103&ccb=2&_nc_sid=cdbe9c&_nc_ohc=O3a_5yh79XEAX8tR7M5&_nc_ht=scontent.famd4-1.fna&oh=0f85cdd35e2313850ebce735c225d158&oe=6029E2E8)">
+                                    <div class="event_item_inner" >
+                                        <div class="event_item_circle" style="background-color:#72C4FE;"></div>
+                                        <div class="event_item_gradient"></div>
+                                        <div class="event_item_head">
+                                            <div class="event_item_title">Cultural Council</div>
+                                            <div class="event_item_subtitle"><span>This is a Cultural Council event</span></div>
+                                        </div>
+                                        <div class="event_item_float" >2020</div>
+                                        <div class="event_item_foot">
+                                            <ul class="event_item_details" >
+                                                <li>25/02/2021</li> <br>
+                                                <li>Microsoft Teams</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div id="overlay"></div> 
+                                </div>
+                            </div>
+
+                            <div class="event_item" data-color="sports">
+                                <a href="#" class="event_item_link"></a>
+                                <div class="event_item_container" style="height: 100%; background-size: cover; background-repeat: no-repeat; background-position: center; background-image: url(https://scontent.famd4-1.fna.fbcdn.net/v/t1.0-9/53238287_1512489958885367_4264831451809185792_o.jpg?_nc_cat=101&ccb=2&_nc_sid=cdbe9c&_nc_ohc=K6NHQu9ZBbUAX_IdODY&_nc_ht=scontent.famd4-1.fna&oh=7b6ced1eba55fefcdd07428f82984ca2&oe=602A8FA6)">
+                                    <div class="event_item_inner" >
+                                        <div class="event_item_circle" style="background-color:#72C4FE;"></div>
+                                        <div class="event_item_gradient"></div>
+                                        <div class="event_item_head">
+                                            <div class="event_item_title">Sports Council</div>
+                                            <div class="event_item_subtitle"><span>This is a Sports Council event</span></div>
+                                        </div>
+                                        <div class="event_item_float" >2020</div>
+                                        <div class="event_item_foot">
+                                            <ul class="event_item_details" >
+                                                <li>25/02/2021</li> <br>
+                                                <li>Microsoft Teams</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div id="overlay"></div> 
+                                </div>
+                            </div>
+
+                            <div class="event_item" data-color="tech">
+                                <a href="#" class="event_item_link"></a>
+                                <div class="event_item_container" style="height: 100%; background-size: cover; background-repeat: no-repeat; background-position: center; background-image: url(https://scontent.famd4-1.fna.fbcdn.net/v/t1.0-9/92461398_1890247541109605_6265730369962639360_o.jpg?_nc_cat=102&ccb=2&_nc_sid=cdbe9c&_nc_ohc=mLDFrX0lDtAAX94N-or&_nc_oc=AQnuZNJts-gX9YyQzn9v0UVXPZWKaBhjMR452W5vqO2_oS2dTT4Cu6v-Yc17y-GmLyw&_nc_ht=scontent.famd4-1.fna&oh=2130df3cde257d059dc85bc92275b660&oe=602B8B18)">
+                                    <div class="event_item_inner" >
+                                        <div class="event_item_circle" style="background-color:#72C4FE;"></div>
+                                        <div class="event_item_gradient"></div>
+                                        <div class="event_item_head">
+                                            <div class="event_item_title">Technical Council</div>
+                                            <div class="event_item_subtitle"><span>This is a Technical Council event</span></div>
+                                        </div>
+                                        <div class="event_item_float" >2020</div>
+                                        <div class="event_item_foot">
+                                            <ul class="event_item_details" >
+                                                <li>25/02/2021</li> <br>
+                                                <li>Microsoft Teams</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div id="overlay"></div> 
+                                </div>
+                            </div>
+
+                            
+                            
                         </div>
 
                     </div>
@@ -215,46 +480,7 @@
     
     <div class="cursor"></div>
 
-    <section>
-        <div id="preloader">
-            <div id="ctn-preloader" class="ctn-preloader">
-                <div class="animation-preloader">
-                    <div class="spinner"></div>
-                    <div class="txt-loading">
-                        <span data-text-preloader="L" class="letters-loading">
-                            L
-                        </span>
-                        
-                        <span data-text-preloader="O" class="letters-loading">
-                            O
-                        </span>
-                        
-                        <span data-text-preloader="A" class="letters-loading">
-                            A
-                        </span>
-                        
-                        <span data-text-preloader="D" class="letters-loading">
-                            D
-                        </span>
-                        
-                        <span data-text-preloader="I" class="letters-loading">
-                            I
-                        </span>
-                        
-                        <span data-text-preloader="N" class="letters-loading">
-                            N
-                        </span>
-                        
-                        <span data-text-preloader="G" class="letters-loading">
-                            G
-                        </span>
-                    </div>
-                </div>	
-                <div class="loader-section section-left"></div>
-                <div class="loader-section section-right"></div>
-            </div>
-        </div>
-    </section>
+    <?php include 'loader.php' ?>
 
     <script src="js/jquery.min.js"></script>
     <script src="js/script.js"></script>

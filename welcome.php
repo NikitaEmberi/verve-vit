@@ -4,9 +4,57 @@ session_start();
  
 // Check if the user is logged in, if not then redirect him to login page
 if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
-    header("location: login.php");
+    header("location: login");
     exit;
 }
+
+    if($_SERVER["REQUEST_METHOD"] == "POST"){
+    
+        // Check if username is empty
+        if(empty(trim($_POST["event_name"]))){
+            $eventname_err = "Please enter Event Name.";
+        } else{
+            $event_name = trim($_POST["event_name"]);
+        }
+
+        if(empty(trim($_POST["description"]))){
+            $description_err = "Please enter description.";
+        } else{
+            $description = trim($_POST["description"]);
+        }
+
+        if(empty(trim($_POST["contact"]))){
+            $contact_err = "Please enter contact.";
+        } else{
+            $contact = trim($_POST["contact"]);
+        }
+
+        if(empty(trim($_POST["date"]))){
+            $date_err = "Please enter Date.";
+        } else{
+            $date = trim($_POST["date"]);
+        }
+
+        if(empty(trim($_POST["questions"]))){
+            $questions_err = "Please enter Questions.";
+        } else{
+            $questions = trim($_POST["questions"]);
+        }
+
+        if(empty(trim($_POST["questions"]))){
+            $questions_err = "Please enter Questions.";
+        } else{
+            $questions = trim($_POST["questions"]);
+        }
+
+        if(empty(trim($_POST["attachment"]))){
+            $attachment_err = "Please select attachment.";
+        } else{
+            $attachment = trim($_POST["attachment"]);
+        }
+        
+    }
+
 ?>
 
 <!DOCTYPE html>
@@ -57,10 +105,10 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                 <nav id="main-navigation" class="nav-main">
                     <ul class="menu">
                         <li class="menu__item">
-                            <a class="menu__link active" href="index.html">Home</a>
+                            <a class="menu__link active" href="index">Home</a>
                         </li>
                         <li class="menu__item">
-                            <a class="menu__link" href="events.html">Events</a>
+                            <a class="menu__link" href="events">Events</a>
                             <!-- <ul class="submenu">
                                 <li class="menu__item">
                                     <a class="menu__link" href="#0">E1</a>
@@ -75,20 +123,20 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                         </li> -->
                         
                         <li class="menu__item">
-                            <a class="menu__link" href="sponsors.html">My Events</a>
+                            <a class="menu__link" href="sponsors">My Events</a>
                         </li>
                         
                         <li class="menu__item">
-                            <a class="menu__link" href="reset-password.php">Reset Your Password</a>
+                            <a class="menu__link" href="reset-password">Reset Your Password</a>
                         </li>
                         
                         <li class="menu__item">
-                            <a class="menu__link" href="logout.php">Logout</a>
+                            <a class="menu__link" href="logout">Logout</a>
                         </li>
                     </ul>
                 </nav>                
 
-                <a class="logo" href="index.html">
+                <a class="logo" href="index">
                     <svg version="1.0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2445.000000 493.000000">
                         <g transform="translate(0.000000,493.000000) scale(0.100000,-0.100000)"
                         fill="#000" stroke="none">
@@ -125,39 +173,44 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                         <div class="content">
                         
                             <h2 class="title">Welcome <?php echo $_SESSION["username"]?>!!</h2>
-                            <form action="" method="post" class="form">
+                            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" class="form">
 
                                 <div class="form_item">
-                                    <label class="form_input">
-                                        <input placeholder="Event Name" name="name" autocomplete="off" type="text" class="form_input_field"/>
+                                    <label class="form_input" <?php echo (!empty($eventname_err)) ? 'has-error' : ''; ?>>
+                                        <input placeholder="Event Name" name="event_name" autocomplete="off" type="text" class="form_input_field"/>
+                                        <p class="form_input_field--error"><?php echo $eventname_err; ?></p>
                                     </label>
                                 </div>
 
-                                <div class="form_item">
+                                <div class="form_item" <?php echo (!empty($description_err)) ? 'has-error' : ''; ?>>
                                     <label class="form_input">
-                                        <input placeholder="Description" name="email" autocomplete="off" type="text" class="form_input_field"/>
+                                        <input placeholder="Description" name="description" autocomplete="off" type="text" class="form_input_field"/>
+                                        <p class="form_input_field--error"><?php echo $description_err; ?></p>
                                     </label>
                                 </div>
 
-                                <div class="form_item">
+                                <div class="form_item" <?php echo (!empty($contact_err)) ? 'has-error' : ''; ?>>
                                     <label class="form_input">
-                                        <input placeholder="Contact numbers" name="phone" autocomplete="off" type="text" class="form_input_field"/>
+                                        <input placeholder="Contact numbers" name="contact" autocomplete="off" type="text" class="form_input_field"/>
+                                        <p class="form_input_field--error"><?php echo $contact_err; ?></p>
                                     </label>
                                 </div>
                                 
-                                <div class="form_item">
+                                <div class="form_item" <?php echo (!empty($date_err)) ? 'has-error' : ''; ?>>
                                     <label class="form_input">
                                         <input placeholder="Date" name="date" autocomplete="off" type="date" class="form_input_field"/>
+                                        <p class="form_input_field--error"><?php echo $date_err; ?></p>
                                     </label>
                                 </div>
 
-                                <div class="form_item">
+                                <div class="form_item" <?php echo (!empty($questions_err)) ? 'has-error' : ''; ?>>
                                     <label class="form_input">
                                         <input placeholder="Questions (seperated by <>)" name="questions" autocomplete="off" type="text" class="form_input_field"/>
+                                        <p class="form_input_field--error"><?php echo $questions_err; ?></p>
                                     </label>
                                 </div>
 
-                                <div class="form_item">
+                                <div class="form_item" <?php echo (!empty($attachment_err)) ? 'has-error' : ''; ?>>
                                     <label class="form_input form_input--file" style="cursor: pointer;">
                                         <input placeholder="Poster (height 500px)" id="file-upload" name="attachment" autocomplete="off" type="file" class="form_input_field"/>
                                         <label for="file-upload"></label>
@@ -167,9 +220,17 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                                             </svg>
                                         </div>
                                     </label>
+                                                                            <p class="form_input_field--error"><?php echo $attachment_err; ?></p>
+
                                 </div>
 
-                                
+                                <div class="form_item" <?php echo (!empty($password_err)) ? 'has-error' : ''; ?> style="display: none">
+                                    <label class="form_input">
+                                        <input id="submit" type="submit" class="form_input_field"/>
+                                        
+                                    </label>
+                                </div>
+
                                 <div class="form_item ">
                                     <a class="white" href="#"><p><span class="bg"></span><span class="base"></span><span class="text">Submit</span></p></a>
 
@@ -203,47 +264,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
     <div class="cursor"></div>
 
-    <section>
-		<div id="preloader">
-			<div id="ctn-preloader" class="ctn-preloader">
-				<div class="animation-preloader">
-					<div class="spinner"></div>
-					<div class="txt-loading">
-						<span data-text-preloader="L" class="letters-loading">
-							L
-						</span>
-						
-						<span data-text-preloader="O" class="letters-loading">
-							O
-						</span>
-						
-						<span data-text-preloader="A" class="letters-loading">
-							A
-						</span>
-						
-						<span data-text-preloader="D" class="letters-loading">
-							D
-						</span>
-						
-						<span data-text-preloader="I" class="letters-loading">
-							I
-						</span>
-						
-						<span data-text-preloader="N" class="letters-loading">
-							N
-						</span>
-						
-						<span data-text-preloader="G" class="letters-loading">
-							G
-						</span>
-					</div>
-				</div>	
-				<div class="loader-section section-left"></div>
-				<div class="loader-section section-right"></div>
-			</div>
-		</div>
-	</section>
-
+    <?php include 'loader.php' ?>
     
     <script src="js/jquery.min.js"></script>
     <script src="js/script.js"></script>

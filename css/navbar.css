@@ -302,6 +302,7 @@ a {
     height: 100%;
     width: 104px;
     z-index: 100;
+    background-color: #fff;
 }
 
 .Nav_preloader {

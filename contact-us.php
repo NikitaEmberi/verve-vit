@@ -51,16 +51,6 @@
                                         <input placeholder="Message" name="message" autocomplete="off" type="text" class="form_input_field"/>
                                     </label>
                                 </div>
-                                
-                                <!-- <div class="form_item">
-                                    <label class="form_input form_input--file">
-                                        <input placeholder="Curriculum vitae" name="attachment" autocomplete="off" type="file" class="form_input_field"/>
-                                        <span class="baseInput__text"><span>Curriculum vitae</span></span>
-                                        <div class="baseInput__icon">
-                                            <svg data-symbol="icon-attachment" symbol="icon-attachment" class="icon"><use xlink:href="/assets/sprite.svg?v=a82e50dabc236f3c54ecc63a5aed7852#icon-attachment"></use></svg>
-                                        </div>
-                                    </label>
-                                </div> -->
 
                                 <div class="form_item ">
                                     <a class="white" href="#"><p><span class="bg"></span><span class="base"></span><span class="text">Submit</span></p></a>
@@ -114,46 +104,8 @@
     
     <div class="cursor"></div>
 
-    <section>
-        <div id="preloader">
-            <div id="ctn-preloader" class="ctn-preloader">
-                <div class="animation-preloader">
-                    <div class="spinner"></div>
-                    <div class="txt-loading">
-                        <span data-text-preloader="L" class="letters-loading">
-                            L
-                        </span>
-                        
-                        <span data-text-preloader="O" class="letters-loading">
-                            O
-                        </span>
-                        
-                        <span data-text-preloader="A" class="letters-loading">
-                            A
-                        </span>
-                        
-                        <span data-text-preloader="D" class="letters-loading">
-                            D
-                        </span>
-                        
-                        <span data-text-preloader="I" class="letters-loading">
-                            I
-                        </span>
-                        
-                        <span data-text-preloader="N" class="letters-loading">
-                            N
-                        </span>
-                        
-                        <span data-text-preloader="G" class="letters-loading">
-                            G
-                        </span>
-                    </div>
-                </div>	
-                <div class="loader-section section-left"></div>
-                <div class="loader-section section-right"></div>
-            </div>
-        </div>
-    </section>
+    
+    <?php include 'loader.php' ?>
 
     <script src="js/jquery.min.js"></script>
     <script src="js/script.js"></script>

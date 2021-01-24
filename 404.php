@@ -25,9 +25,9 @@
                             <h3>Oops! Page not found</h3>
                             <h1><span>4</span><span>0</span><span>4</span></h1>
                         </div>
-                        <h2>We are sorry, but the page you requested was not found.</h2>
+                        <h2>The page you were looking for could not be found! If you entered the URL manually, please double check what you’ve entered.</h2>
 
-                        <a class="white" href="index.php"><p><span class="bg"></span><span class="base"></span><span class="text">Go to Home</span></p></a>
+                        <a class="white" href="index"><p><span class="bg"></span><span class="base"></span><span class="text">Go to Home</span></p></a>
                 </div> 
             </div>
         </div>

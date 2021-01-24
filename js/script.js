@@ -3,15 +3,15 @@
 $('#hamburger-open').click(function ()
 {
     $("#main-navigation-toggle").prop("checked", true);
-    $("#hamburger-open").css("display", "none");
-    $("#hamburger-close").css("display", "block");
+    $('#hamburger-open').fadeOut()
+    $("#hamburger-close").fadeIn()
 });
 
 $('#hamburger-close').click(function ()
 {
     $("#main-navigation-toggle").prop("checked", false);
-    $("#hamburger-open").css("display", "block");
-    $("#hamburger-close").css("display", "none");
+    $('#hamburger-open').fadeIn()
+    $("#hamburger-close").fadeOut()
     
 });
 
@@ -29,8 +29,9 @@ $filters.on('click', function(e) {
 
     var $filterColor = $this.attr('data-filter');
 
-    $('#hamburger-open').css({"display": "block"})
-    $('.events_sort').removeClass('events_sort--active')
+    $('#hamburger-open').fadeIn()
+    $('.events_sort').removeClass('events_sort--active');
+    $('.logo').fadeIn()
 
     if ($filterColor == 'all') {
         
@@ -48,17 +49,19 @@ $filters.on('click', function(e) {
     }
 });
 
-$('.events_sortbtn').on('click', function(e) {
-    e.preventDefault();
-    $('#hamburger-open').css({"display": "none"})
+
+$(".events_sortbtn").click(function(){
+    $('#hamburger-open').fadeOut()
     $('.events_sort').addClass('events_sort--active');
+    $('.logo').fadeOut()
+})
+    
+$(".events_sort_close").click(function(){
+    $('#hamburger-open').fadeIn()
+    $('.events_sort').removeClass('events_sort--active');
+    $('.logo').fadeIn()
 })
 
-$('.events_sort_close').on('click', function(e) {
-    e.preventDefault();
-    $('#hamburger-open').css({"display": "block"})
-    $('.events_sort').removeClass('events_sort--active');
-})
 
 // FILE UPLOAD
 

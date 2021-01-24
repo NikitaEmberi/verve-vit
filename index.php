@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +14,7 @@
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center; 
-            background-image: url(https://images.unsplash.com/photo-1449034446853-66c86144b0ad?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80)
+            background-image: url('https://scontent.famd4-1.fna.fbcdn.net/v/t1.0-9/53238287_1512489958885367_4264831451809185792_o.jpg?_nc_cat=101&ccb=2&_nc_sid=cdbe9c&_nc_ohc=K6NHQu9ZBbUAX_IdODY&_nc_ht=scontent.famd4-1.fna&oh=7b6ced1eba55fefcdd07428f82984ca2&oe=602A8FA6')
         }
     </style>
     
@@ -27,8 +28,8 @@
 
             <div>
 
-                <nav class="Nav Nav--shadow Nav--fixed">
-                    <a href="events.html" class="Nav_content"><span>Events</span></a>
+                <nav class="Nav Nav--shadow Nav--fixed" style="background-color: hsla(0, 0%, 100%, 0.06)">
+                    <a href="events" class="Nav_content"><span>Events</span></a>
                     <div class="Nav_preloader">
                         <div class="Nav__preloader_Item Nav__preloader_Item--first"></div>
                         <div class="Nav__preloader_Item Nav__preloader_Item--second"></div>
@@ -58,10 +59,10 @@
                 <nav id="main-navigation" class="nav-main">
                     <ul class="menu">
                         <li class="menu__item">
-                            <a class="menu__link active" href="index.html">Home</a>
+                            <a class="menu__link active" href="index">Home</a>
                         </li>
                         <li class="menu__item">
-                            <a class="menu__link" href="events.php">Events</a>
+                            <a class="menu__link" href="events">Events</a>
                             <!-- <ul class="submenu">
                                 <li class="menu__item">
                                     <a class="menu__link" href="#0">E1</a>
@@ -75,21 +76,21 @@
                             </ul> -->
                         </li>
                         <li class="menu__item">
-                            <a class="menu__link" href="picture-gallery.php">Picture Gallery</a>
+                            <a class="menu__link" href="picture-gallery">Picture Gallery</a>
                         </li>
                         <li class="menu__item">
-                            <a class="menu__link" href="about-us.php">About Us</a>
+                            <a class="menu__link" href="about-us">About Us</a>
                         </li>
                         <li class="menu__item">
-                            <a class="menu__link" href="sponsors.php">Our Sponsors</a>
+                            <a class="menu__link" href="sponsors">Our Sponsors</a>
                         </li>
                         <li class="menu__item">
-                            <a class="menu__link" href="contact-us.php">Contact Us</a>
+                            <a class="menu__link" href="contact-us">Contact Us</a>
                         </li>
                     </ul>
                 </nav>                
 
-                <a class="logo" href="index.html">
+                <a class="logo" href="index">
                     <svg version="1.0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2445.000000 493.000000">
                         <g transform="translate(0.000000,493.000000) scale(0.100000,-0.100000)"
                         fill="#fff" stroke="none">
@@ -208,36 +209,7 @@
 			C480.224,136.96,497.728,118.496,512,97.248z"/>
 	</g>
 </g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
+
 </svg>
                                     
                                     <div class="Socials_text">Twitter</div>
@@ -265,46 +237,8 @@
 
     <div class="cursor"></div>
 
-    <section>
-        <div id="preloader">
-            <div id="ctn-preloader" class="ctn-preloader">
-                <div class="animation-preloader">
-                    <div class="spinner"></div>
-                    <div class="txt-loading">
-                        <span data-text-preloader="L" class="letters-loading">
-                            L
-                        </span>
-                        
-                        <span data-text-preloader="O" class="letters-loading">
-                            O
-                        </span>
-                        
-                        <span data-text-preloader="A" class="letters-loading">
-                            A
-                        </span>
-                        
-                        <span data-text-preloader="D" class="letters-loading">
-                            D
-                        </span>
-                        
-                        <span data-text-preloader="I" class="letters-loading">
-                            I
-                        </span>
-                        
-                        <span data-text-preloader="N" class="letters-loading">
-                            N
-                        </span>
-                        
-                        <span data-text-preloader="G" class="letters-loading">
-                            G
-                        </span>
-                    </div>
-                </div>	
-                <div class="loader-section section-left"></div>
-                <div class="loader-section section-right"></div>
-            </div>
-        </div>
-    </section>
+    
+    <?php include 'loader.php' ?>
 
     <script src="js/jquery.min.js"></script>
     <script src="js/script.js"></script>
@@ -313,8 +247,7 @@
     // Array of Images
     var images = ['https://scontent.famd4-1.fna.fbcdn.net/v/t31.0-8/27993801_1203897646411268_8159286761677238872_o.jpg?_nc_cat=103&ccb=2&_nc_sid=cdbe9c&_nc_ohc=O3a_5yh79XEAX8tR7M5&_nc_ht=scontent.famd4-1.fna&oh=0f85cdd35e2313850ebce735c225d158&oe=6029E2E8',
     'https://scontent.famd4-1.fna.fbcdn.net/v/t1.0-9/53238287_1512489958885367_4264831451809185792_o.jpg?_nc_cat=101&ccb=2&_nc_sid=cdbe9c&_nc_ohc=K6NHQu9ZBbUAX_IdODY&_nc_ht=scontent.famd4-1.fna&oh=7b6ced1eba55fefcdd07428f82984ca2&oe=602A8FA6',
-    'https://images.unsplash.com/photo-1448630360428-65456885c650?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2094&q=80',
-    'https://images.unsplash.com/photo-1534161308652-fdfcf10f62c4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2174&q=80'
+    
     ];
 
        setInterval(changeImage, 5000);
@@ -326,6 +259,5 @@
      }
    }
     </script>
-
 </body>
 </html>
