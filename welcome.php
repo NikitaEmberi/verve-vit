@@ -2,58 +2,128 @@
 // Initialize the session
 session_start();
  
+// Include config file
+require_once "config.php";
+
 // Check if the user is logged in, if not then redirect him to login page
 if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     header("location: login");
     exit;
 }
 
-    if($_SERVER["REQUEST_METHOD"] == "POST"){
-    
-        // Check if username is empty
-        if(empty(trim($_POST["event_name"]))){
-            $eventname_err = "Please enter Event Name.";
-        } else{
-            $event_name = trim($_POST["event_name"]);
-        }
+//initialize variables
+$table_err=$eventname_err=$description_err=$contact_err=$date_err=$questions_err=$attachment_err="";
 
-        if(empty(trim($_POST["description"]))){
-            $description_err = "Please enter description.";
-        } else{
-            $description = trim($_POST["description"]);
-        }
+if($_SERVER["REQUEST_METHOD"] == "POST"){
 
-        if(empty(trim($_POST["contact"]))){
-            $contact_err = "Please enter contact.";
-        } else{
-            $contact = trim($_POST["contact"]);
-        }
-
-        if(empty(trim($_POST["date"]))){
-            $date_err = "Please enter Date.";
-        } else{
-            $date = trim($_POST["date"]);
-        }
-
-        if(empty(trim($_POST["questions"]))){
-            $questions_err = "Please enter Questions.";
-        } else{
-            $questions = trim($_POST["questions"]);
-        }
-
-        if(empty(trim($_POST["questions"]))){
-            $questions_err = "Please enter Questions.";
-        } else{
-            $questions = trim($_POST["questions"]);
-        }
-
-        if(empty(trim($_POST["attachment"]))){
-            $attachment_err = "Please select attachment.";
-        } else{
-            $attachment = trim($_POST["attachment"]);
-        }
-        
+    //Check if username is empty
+    if(empty(trim($_POST["name"]))){
+        $eventname_err = "Please enter Event Name.";
+    }else{
+        $event_name = trim($_POST["name"]);
+        $event = $event_name;
+        $event_name = mysqli_real_escape_string($link , $event_name);
     }
+
+    if(empty(trim($_POST["description"]))){
+        $description_err = "Please enter description.";
+    } else{
+        $description = trim($_POST["description"]);
+        $description = mysqli_real_escape_string($link, $description);
+    }
+
+    if(empty(trim($_POST["phone"]))){
+        $contact_err = "Please enter contact.";
+    } else{
+        $contact_numbers=explode("<>",$_POST['phone']);
+        $contact_numbers=implode(",",$contact_numbers);
+     }
+
+    if(empty(trim($_POST["date"]))){
+        $date_err = "Please enter Date.";
+    } else{
+        $date = trim($_POST["date"]);
+    }
+
+    if(empty(trim($_POST["questions"]))){
+        $questions_err = "Please enter Questions.";
+    } else{
+        $questions_array = explode("<>",$_POST['questions']);
+        $num_of_questions = count($questions_array);
+        $questions=mysqli_real_escape_string($link,implode(",",$questions_array));
+     }
+
+    if(empty(trim($_FILES["attachment"]["name"]))){
+        $attachment_err = "Please select attachment.";
+    } else{
+        $attachment = trim($_FILES["attachment"]["name"]);
+    }
+    
+    $user_id = $_SESSION["id"];
+
+    function GetImageExtension($imagetype){
+        if(empty($imagetype)) return false;
+        switch($imagetype){
+            case 'image/bmp' : return '.bmp';
+            case 'image/gif' : return '.gif';
+            case 'image/jpeg' : return '.jpg';
+            case 'image/png' : return '.png';
+            default: return false;
+        }
+     }
+    
+     $file_name=$_FILES["attachment"]["name"];
+     $tmp_name=$_FILES["attachment"]["tmp_name"];
+     $imgtype=$_FILES["attachment"]["type"];
+     $ext=GetImageExtension($imgtype);
+     $imagename=date("d-m-y")."-".time().$ext;
+     $target_path="images/event_posters/".$imagename;
+     if(move_uploaded_file($tmp_name,$target_path)){
+         if($ext==false){ 
+             echo "<script>alert('Not a valid file type!')</script>";
+         }else{
+
+           $query="INSERT INTO 
+           events(event_name, description,contact_numbers,date_of_event,questions,event_poster,user_id)
+           VALUES ('$event_name', '$description' , '$contact_numbers' , '$date' , '$questions' ,'$imagename' ,'$user_id')";
+            
+            if(mysqli_query($link,$query)){
+                if($num_of_questions>0){
+                   $query="CREATE table `$event` (form_id int NOT NULL AUTO_INCREMENT, event_id int, primary key(form_id), foreign key (event_id) references events(event_id) )";
+                   
+                   if(mysqli_query($link,$query)){
+                       $i=0;
+                       $c=0;
+                      
+                       while($num_of_questions>0){
+                         $query="ALTER table `$event` add column `$questions_array[$i]` text(255)";
+                         
+                         if(mysqli_query($link,$query)){
+                             //if column is created
+                             $c++;
+                         }else{
+                            echo mysqli_error($link);
+                         }                         
+                         
+                         $num_of_questions--;
+                         $i++;
+                      }
+                      //Only if columns of all questions are created
+                      if($c>0){
+                        header("location:welcome.php");
+                      }
+                   }else{
+                       //If table already exists
+                        $table_err=mysqli_error($link);
+                   }
+                }
+            }else{
+                echo mysqli_error($link);
+            }     
+         }
+     }
+}
+
 
 ?>
 
@@ -173,12 +243,14 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                         <div class="content">
                         
                             <h2 class="title">Welcome <?php echo $_SESSION["username"]?>!!</h2>
-                            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" class="form">
+                            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" class="form" enctype="multipart/form-data">
 
-                                <div class="form_item">
-                                    <label class="form_input" <?php echo (!empty($eventname_err)) ? 'has-error' : ''; ?>>
-                                        <input placeholder="Event Name" name="event_name" autocomplete="off" type="text" class="form_input_field"/>
+                                <div class="form_item"  <?php echo (!empty($eventname_err)) ? 'has-error' : ''; ?> 
+                                <?php echo (!empty($table_err)) ? 'has-error' : ''; ?>>
+                                    <label class="form_input">
+                                        <input placeholder="Event Name" name="name" autocomplete="off" type="text" class="form_input_field"/>
                                         <p class="form_input_field--error"><?php echo $eventname_err; ?></p>
+                                        <p class="form_input_field--error"><?php echo $table_err; $table_err="" ?></p>
                                     </label>
                                 </div>
 
@@ -191,12 +263,12 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
                                 <div class="form_item" <?php echo (!empty($contact_err)) ? 'has-error' : ''; ?>>
                                     <label class="form_input">
-                                        <input placeholder="Contact numbers" name="contact" autocomplete="off" type="text" class="form_input_field"/>
+                                        <input placeholder="Contact numbers" name="phone" autocomplete="off" type="text" class="form_input_field"/>
                                         <p class="form_input_field--error"><?php echo $contact_err; ?></p>
                                     </label>
                                 </div>
                                 
-                                <div class="form_item" <?php echo (!empty($date_err)) ? 'has-error' : ''; ?>>
+                                <div class="form_item"  <?php echo (!empty($date_err)) ? 'has-error' : ''; ?>>
                                     <label class="form_input">
                                         <input placeholder="Date" name="date" autocomplete="off" type="date" class="form_input_field"/>
                                         <p class="form_input_field--error"><?php echo $date_err; ?></p>
@@ -220,14 +292,12 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                                             </svg>
                                         </div>
                                     </label>
-                                                                            <p class="form_input_field--error"><?php echo $attachment_err; ?></p>
-
+                                    <p class="form_input_field--error"><?php echo $attachment_err; ?></p>
                                 </div>
 
                                 <div class="form_item" <?php echo (!empty($password_err)) ? 'has-error' : ''; ?> style="display: none">
                                     <label class="form_input">
                                         <input id="submit" type="submit" class="form_input_field"/>
-                                        
                                     </label>
                                 </div>
 
@@ -264,7 +334,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
     <div class="cursor"></div>
 
-    <?php include 'loader.php' ?>
+    <!-- <?php// include 'loader.php' ?> -->
     
     <script src="js/jquery.min.js"></script>
     <script src="js/script.js"></script>
