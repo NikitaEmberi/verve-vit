@@ -99,7 +99,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                          $query="ALTER table `$event` add column `$questions_array[$i]` text(255)";
                          
                          if(mysqli_query($link,$query)){
-                             //if column is created
+                             //Increment everytime column is created
                              $c++;
                          }else{
                             echo mysqli_error($link);
